@@ -4,6 +4,12 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts or /blog_posts.json
   def index
     @blog_posts = BlogPost.all
+    @pagy, @blog_posts = pagy(@blog_posts)
+  rescue Pagy::OutOfRangeError
+    redirect_to root_path(page: 1)
+    
+    #params[:page] = 1
+    #retry
   end
 
   # GET /blog_posts/1 or /blog_posts/1.json

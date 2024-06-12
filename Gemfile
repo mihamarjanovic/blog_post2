@@ -71,3 +71,4 @@ end
 
 gem 'devise'
 gem "aws-sdk-s3", require: false
+gem 'pagy', '~> 0.6.0'

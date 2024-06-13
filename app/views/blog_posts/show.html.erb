@@ -6,6 +6,8 @@
 
     <%= render @blog_post %>
 
+    <%= image_tag @blog_post.cover_image if @blog_post.cover_image.present? %>
+
     <%= link_to "Edit this blog post", edit_blog_post_path(@blog_post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to "Back to blog posts", blog_posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <div class="inline-block ml-2">

@@ -12,3 +12,14 @@
    BlogPost.create title: "Blog Post #{i}", content: "Hello world"
 end
 =end
+
+require 'faker'
+
+BlogPost.transaction do
+   100.times do
+      BlogPost.create(
+         title: Faker::Book.title,
+         content: Faker::Lorem.paragraphs(number: rand(1..5)).join("\n\n")
+      )
+   end
+end
